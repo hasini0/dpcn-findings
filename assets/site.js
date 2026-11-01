@@ -144,11 +144,10 @@
   if (toc) {
     toc.innerHTML = SECTIONS.map(([id, href, t, sub], i) => `
       <li><a href="${href}">
-        <span class="num">${i + 1}</span>
-        <span>
-          <span class="line"><span class="title">${t}</span><span class="leader"></span><span class="stat" data-headline="${id}"></span></span>
-          <span class="sub" style="display:block">${sub}</span>
-        </span></a></li>`).join("");
+        <span class="stat" data-headline="${id}"></span>
+        <span><span class="num">Section ${String(i + 1).padStart(2, "0")}</span><span class="title">${t}</span><span class="sub">${sub}</span></span>
+        <svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a></li>`).join("");
   }
 
   // ---------- fill numbers in prose ----------
