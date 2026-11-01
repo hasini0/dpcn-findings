@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Output and quality · Research Mapping</title>
+<meta name="description" content="Papers per year, journal quartiles, fields and top journals for the four institutes, 2016–2026.">
+<script>try{var t=localStorage.getItem("rm-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="output" data-hl="ALL">
+<main>
+<div class="intro">
+  <div class="eyebrow"></div>
+  <h1>Output and quality</h1>
+  <p class="lede">Together the four institutes published <span data-n="output.papers.ALL"></span> papers that have been cited <span data-n="output.citations.ALL"></span> times. Output is flat over the decade, and most of it lands in top-quartile journals.</p>
+  <div class="headline" data-headline="output"></div>
+</div>
+<figure>
+  <div class="fig-title">Papers per year</div>
+  <div data-legend="inst"></div>
+  <div data-chart="output-trend"></div>
+  <figcaption>SINP is the largest producer but has shrunk since 2016; NCBS has grown. 2026 is a partial year (data from October).</figcaption>
+</figure>
+<figure>
+  <div class="fig-title">Share of journal papers in Q1 journals</div>
+  <div data-chart="output-q1"></div>
+  <figcaption>Q1 share = Q1 papers ÷ journal papers with a known quartile.</figcaption>
+</figure>
+<div class="cards">
+  <div class="card"><b data-n="output.tiers.ALL.Q1 & IF>10"></b><span>papers in Q1 journals with impact factor above 10</span></div>
+  <div class="card"><b data-n="output.tiers.ALL.Q1 & IF>5"></b><span>papers in Q1 journals with impact factor above 5</span></div>
+</div>
+<figure>
+  <div class="fig-title">Journal quartiles, all four institutes</div>
+  <div data-chart="output-quartiles"></div>
+</figure>
+<figure>
+  <div class="fig-title">Research fields (one OpenAlex field per paper)</div>
+  <div data-chart="output-fields"></div>
+  <figcaption>Physics and astronomy is the largest field, followed by biochemistry, genetics and molecular biology.</figcaption>
+</figure>
+<figure>
+  <div class="fig-title">Journals with the most papers</div>
+  <div data-chart="output-journals"></div>
+</figure>
+<h2>Most-cited papers</h2>
+<p>The most-cited papers are almost all large consortium papers, which is why the <a href="teams.html">big teams</a> section matters.</p>
+<div data-table="output-cited"></div>
+</main>
+<script src="data/findings.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

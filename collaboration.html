@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The collaboration network · Research Mapping</title>
+<meta name="description" content="The co-authorship network of the four institutes: communities, bridges and the most connected authors.">
+<script>try{var t=localStorage.getItem("rm-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="collaboration" data-hl="ALL">
+<main>
+<div class="intro">
+  <div class="eyebrow"></div>
+  <h1>The collaboration network</h1>
+  <p class="lede">Each node is one of our authors and each line means two people wrote a paper together (papers with more than 100 authors left out). The network is highly modular: authors cluster into tight lab-sized groups, and very few lines cross between institutes.</p>
+  <div class="headline" data-headline="collaboration"></div>
+</div>
+<div class="cards">
+  <div class="card"><b data-n="collaboration.auth.ALL.nodes"></b><span>authors</span></div>
+  <div class="card"><b data-n="collaboration.auth.ALL.edges"></b><span>co-author links</span></div>
+  <div class="card"><b data-n="collaboration.auth.ALL.giant_component"></b><span>authors in the largest connected piece</span></div>
+  <div class="card"><b data-n="collaboration.auth.ALL.cross_inst_edges"></b><span>links between two of our institutes</span></div>
+</div>
+<figure>
+  <div class="fig-title">Modularity of each institute's co-author network (Louvain)</div>
+  <div data-chart="collab-mod"></div>
+  <figcaption>Higher = more clearly split into separate groups. NCBS is the most modular, split into <span data-n="collaboration.auth.NCBS.communities"></span> communities.</figcaption>
+</figure>
+<figure>
+  <div class="fig-title">Largest communities, all four institutes</div>
+  <div data-chart="collab-comm"></div>
+</figure>
+<h2>The faculty-only network</h2>
+<p>Keeping only the <span data-n="collaboration.facnet.ALL.nodes"></span> verified faculty, there are <span data-n="collaboration.facnet.ALL.edges"></span> faculty–faculty links, only <span data-n="collaboration.facnet.ALL.cross_inst"></span> of them across institutes, and <span data-n="collaboration.facnet.ALL.isolated"></span> faculty members never publish with another faculty colleague here.</p>
+<figure>
+  <div class="fig-title">Joint papers between the four institutes</div>
+  <div data-chart="collab-shared"></div>
+  <figcaption>The three Kolkata institutes work together, Bose Institute and SINP most of all. NCBS in Bangalore barely co-authors with any of them.</figcaption>
+</figure>
+<h2>Who connects the network</h2>
+<h3>Most co-authors (degree)</h3>
+<div class="hl-note"></div>
+<div data-table="collab-deg"></div>
+<h3>Top brokers (betweenness)</h3>
+<p class="muted">Authors who sit on the shortest paths between groups: the bridges between labs.</p>
+<div data-table="collab-btw"></div>
+</main>
+<script src="data/findings.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
