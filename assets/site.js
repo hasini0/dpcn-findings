@@ -114,6 +114,7 @@
       const s = D.headline[el.dataset.headline][id];
       el.innerHTML = `<b>${esc(s.v)}</b>${esc(s.c)}`;
     });
+    $$(".inst-card").forEach((b) => b.setAttribute("aria-pressed", b.dataset.pick === id));
     $$(".hl-note").forEach((el) => { el.textContent = id === "ALL" ? "" : `Highlighting ${INST[id].name}.`; });
   }
   $$(".chip", bar).forEach((c) => c.addEventListener("click", () => { setHL(c.dataset.hl); store.set("rm-hl", c.dataset.hl); }));
@@ -144,10 +145,40 @@
   if (toc) {
     toc.innerHTML = SECTIONS.map(([id, href, t, sub], i) => `
       <li><a href="${href}">
-        <span class="stat" data-headline="${id}"></span>
+        <span><span class="stat" data-headline="${id}"></span>${minibars(id)}</span>
         <span><span class="num">Section ${String(i + 1).padStart(2, "0")}</span><span class="title">${t}</span><span class="sub">${sub}</span></span>
         <svg class="arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a></li>`).join("");
+  }
+
+  // Per-institute bars under a landing number, scaled to the largest of the four.
+  function minibars(id) {
+    const num = (i) => parseFloat(String(D.headline[id][i].v).replace(/[^0-9.]/g, ""));
+    const max = Math.max(...IDS.map(num)) || 1;
+    return `<span class="minibars" aria-hidden="true">${IDS.map((i) =>
+      `<i data-inst="${i}" style="height:${Math.max(12, (100 * num(i)) / max)}%;background:var(--${i})" data-tip="${INST[i].name}: ${esc(D.headline[id][i].v)}"></i>`).join("")}</span>`;
+  }
+
+  // ---------- institutes at a glance (landing) ----------
+  const glance = $("#glance");
+  if (glance) {
+    const CITY = { SNB: "Kolkata", BI: "Kolkata", SINP: "Kolkata", NCBS: "Bangalore" };
+    const FULL = { SNB: "SN Bose Centre", BI: "Bose Institute", SINP: "Saha Institute (SINP)", NCBS: "NCBS" };
+    glance.innerHTML = IDS.map((i) => {
+      const c = D.compare.inst[i];
+      return `<button type="button" class="inst-card" data-pick="${i}" aria-pressed="false">
+        <span class="band" style="background:var(--${i})"></span>
+        <span class="name">${FULL[i]}</span><span class="city">${CITY[i]}</span>
+        <dl><dt>Papers</dt><dd>${fmt(D.output.papers[i])}</dd>
+        <dt>Citations</dt><dd>${fmt(D.output.citations[i])}</dd>
+        <dt>Q1 share</dt><dd>${D.output.q1[i]}%</dd>
+        <dt>Verified faculty</dt><dd>${D.faculty.verified[i]}</dd></dl>
+        <span class="field">Main field: ${esc(c.top_field)} (${c.top_field_share}%)</span></button>`;
+    }).join("");
+    $$(".inst-card", glance).forEach((b) => b.addEventListener("click", () => {
+      const id = document.body.dataset.hl === b.dataset.pick ? "ALL" : b.dataset.pick;
+      setHL(id); store.set("rm-hl", id);
+    }));
   }
 
   // ---------- fill numbers in prose ----------
