@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The citation network · Research Mapping</title>
+<meta name="description" content="Citations among the four institutes' own papers: self-citation, uncited papers and PageRank.">
+<script>try{var t=localStorage.getItem("rm-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="citations" data-hl="ALL">
+<main>
+<div class="intro">
+  <div class="eyebrow"></div>
+  <h1>The citation network</h1>
+  <p class="lede">Each node is one of our papers and each arrow means one cites the other. Inside our own set there are <span data-n="citations.net.ALL.edges"></span> such links. Nearly half of the papers are never cited by another of our papers, and each institute mostly cites itself.</p>
+  <div class="headline" data-headline="citations"></div>
+</div>
+<figure>
+  <div class="fig-title">Who cites whom (citation links between our papers)</div>
+  <div data-chart="cit-matrix"></div>
+  <figcaption>The diagonal dwarfs everything else: an institute's papers cite its own papers far more than any other institute's. Cross-citation is mostly among the three Kolkata institutes.</figcaption>
+</figure>
+<figure>
+  <div class="fig-title">How often each paper is cited by our other papers</div>
+  <div data-chart="cit-indeg"></div>
+</figure>
+<figure>
+  <div class="fig-title">Papers never cited by another paper from the same institute</div>
+  <div data-chart="cit-never"></div>
+</figure>
+<h2>What PageRank picks out</h2>
+<p>A paper ranks high when papers that are themselves cited cite it. With all papers, the top is taken by CMS technical papers from SINP, which every later CMS paper cites.</p>
+<div class="hl-note"></div>
+<div data-table="cit-pr-all"></div>
+<h3>Papers with fewer than 10 authors</h3>
+<p>Removing large-team papers shows the institutes' own most influential work.</p>
+<div data-table="cit-pr-lt10"></div>
+</main>
+<script src="data/findings.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

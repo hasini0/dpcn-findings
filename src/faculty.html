@@ -1,0 +1,24 @@
+<!-- The faculty · Research Mapping | Verified faculty at the four institutes, how much of the output involves them, and their h-index spread. -->
+<div class="intro">
+  <div class="eyebrow"></div>
+  <h1>The faculty</h1>
+  <p class="lede">The analysis is anchored on faculty. Of the <span data-n="output.papers.ALL"></span> papers, <span data-n="faculty.view.ALL.papers"></span> have at least one of the <span data-n="faculty.verified.ALL"></span> verified faculty members as an author. The other <span data-n="faculty.view.ALL.non_faculty_only"></span> are written only by students, postdocs, visitors or collaboration members.</p>
+  <div class="headline" data-headline="faculty"></div>
+</div>
+<figure>
+  <div class="fig-title">Papers with a verified faculty author</div>
+  <div data-chart="faculty-share"></div>
+  <figcaption>SN Bose and Bose Institute papers nearly always involve faculty. At SINP and NCBS about four in ten papers have no verified faculty author.</figcaption>
+</figure>
+<div class="cards">
+  <div class="card"><b><span data-n="faculty.view.ALL.q1" data-f="pct"></span></b><span>Q1 share of faculty papers, against <span data-n="output.q1.ALL" data-f="pct"></span> for all papers</span></div>
+  <div class="card"><b data-n="faculty.view.ALL.median_papers"></b><span>median papers per faculty member</span></div>
+  <div class="card"><b data-n="faculty.view.ALL.median_cites"></b><span>median citations per faculty member</span></div>
+  <div class="card"><b data-n="faculty.h_median.ALL"></b><span>median faculty h-index</span></div>
+</div>
+<figure>
+  <div class="fig-title">Faculty h-index (OpenAlex, lifetime)</div>
+  <div data-chart="faculty-h"></div>
+  <figcaption>Most faculty sit between h = 10 and h = 30. The h-index is lifetime and counts all affiliations, so it is inflated for people on large collaboration papers.</figcaption>
+</figure>
+<p>Who each faculty member's students are, and each person's best paper, are in the <a href="https://hasini0.github.io/dpcn_a2/#go=p_grp">faculty groups panel of the dashboard</a>.</p>

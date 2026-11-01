@@ -1,0 +1,35 @@
+<!-- How we built the data · Research Mapping | How the dataset was downloaded from OpenAlex, attributed to the four institutes, and checked against official faculty lists. -->
+<div class="intro">
+  <div class="eyebrow"></div>
+  <h1>How we built the data</h1>
+  <p class="lede">Everything starts from OpenAlex. We downloaded every paper the four institutes published from 2016 to 2026, matched authors to institutes by ID, checked them against each institute's own faculty pages, and merged duplicate people and records.</p>
+  <div class="headline" data-headline="data"></div>
+</div>
+<div class="cards">
+  <div class="card"><b data-n="generated_from.works"></b><span>works downloaded</span></div>
+  <div class="card"><b data-n="generated_from.attributed_papers"></b><span>papers attributed to our institutes</span></div>
+  <div class="card"><b data-n="generated_from.rows"></b><span>rows: paper × author × institute</span></div>
+  <div class="card"><b data-n="generated_from.citation_edges"></b><span>citation links</span></div>
+  <div class="card"><b data-n="generated_from.author_edges"></b><span>co-author pairs</span></div>
+  <div class="card"><b data-n="faculty.verified.ALL"></b><span>verified faculty, from <span data-n="pipeline.roster_names"></span> names on official pages</span></div>
+</div>
+
+<h2>1. Download by institution ID, never by name</h2>
+<p>A paper is ours only if at least one author lists one of the four institutes on it, matched by the OpenAlex institution ID (and its child units), so similarly named "Bose" or "Saha" colleges never slip in. We kept articles, reviews and proceedings papers from 2016 to 2026; 2026 is a partial year, downloaded in October.</p>
+<p>For papers with 100 or more authors, the bulk OpenAlex record lists only the first 100. We fetched the complete record for each of them; without that, <span data-n="pipeline.big_papers_rescued"></span> papers (almost all SINP) would have been wrongly left out. In the end every one of the <span data-n="generated_from.attributed_papers"></span> papers is attributed to at least one institute.</p>
+
+<h2>2. Who is faculty?</h2>
+<p>OpenAlex says where an author worked, not whether they are faculty, a student or a visitor. So we scraped each institute's People pages (current, emeritus, adjunct, visiting and former faculty, plus SN Bose's PhD-alumni list, which names every thesis supervisor) into a roster of <span data-n="pipeline.roster_names"></span> names, and matched every author against their own institute's list.</p>
+<div class="cards">
+  <div class="card" data-inst="SNB"><b data-n="faculty.verified.SNB"></b><span>verified faculty at SN Bose</span></div>
+  <div class="card" data-inst="BI"><b data-n="faculty.verified.BI"></b><span>at Bose Institute</span></div>
+  <div class="card" data-inst="SINP"><b data-n="faculty.verified.SINP"></b><span>at SINP</span></div>
+  <div class="card" data-inst="NCBS"><b data-n="faculty.verified.NCBS"></b><span>at NCBS</span></div>
+</div>
+<p>Two names match if they share two full words in any order, or the same surname with initials or a 4+ letter prefix that agree ("A. S. Majumdar" = "Archan S. Majumdar"). Two different full first names never match. Cases the instructor raised were checked by hand and override the automatic result.</p>
+
+<h2>3. One person, many profiles, and many people, one name</h2>
+<p>OpenAlex sometimes splits one person into several profiles; we merge them when they match the same official name or the same written-out full name, and <span data-n="pipeline.merged_author_rows"></span> author rows carry that flag. The opposite problem, several people called "S. Das", is left alone: initials-only names are never merged. We also merged <span data-n="pipeline.duplicate_dois_merged"></span> papers that appeared twice under the same DOI.</p>
+
+<h2>4. Journal quality and what we left out</h2>
+<p>Quartiles come from SCImago 2023 for a curated list of journals and are estimated from citations per paper for the rest (<span data-n="pipeline.quartile_estimated_pct" data-f="pct"></span> of journal papers). Impact factors are approximate JCR 2023 values. The <span data-n="skipped_mega_papers"></span> papers with more than <span data-n="mega_threshold"></span> authors are left out of the co-author network, because one CERN author list would link each physicist to thousands of people.</p>
