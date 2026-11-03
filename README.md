@@ -1,6 +1,6 @@
 # Research Mapping: findings site
 
-Public findings site for DPCN assignment 2 (group 23: Hasini, Bhavya, Eshaan). It covers the research output of SN Bose, Bose Institute, SINP and NCBS from 2016 to 2026. The interactive dashboard lives at https://hasini0.github.io/dpcn_a2/.
+Public findings site for DPCN assignment 2 (group 23: Hasini, Bhavya, Eshaan). It covers the research output of SN Bose, Bose Institute, SINP and NCBS from 2016 to 2026. The interactive dashboard lives at https://dpcn-a2-dashboard-group23.netlify.app/.
 
 Plain HTML, CSS and JS with no build server, so it works as-is on GitHub Pages.
 
