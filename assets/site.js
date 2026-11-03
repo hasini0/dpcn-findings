@@ -122,7 +122,7 @@
   // ---------- footer ----------
   document.body.append(h("footer", {}, `<div class="inner">
     Research Mapping, a DPCN (Dynamical Processes in Complex Networks) course project, IIIT Hyderabad
-    (group 23, 2026) by Hasini, Bhavya and Eshaan, instructor Prof. Chittaranjan Hens.
+    (group 23, 2026) by <b class="names">Hasini, Bhavya and Eshaan</b>.
     Research output 2016–2026 of SN Bose National Centre for Basic Sciences, Bose Institute, Saha Institute of Nuclear Physics
     and NCBS Bangalore. Data from OpenAlex (downloaded October 2026; 2026 is a partial year), the four institutes'
     own faculty pages, SCImago 2023 quartiles and approximate JCR 2023 impact factors.

@@ -260,3 +260,5 @@ footer .inner { max-width: 1180px; margin: 0 auto; padding: 24px 24px 40px; font
   .headline b { font-size: 36px; }
   .contents-menu { position: fixed; left: 16px; right: 16px; top: 56px; min-width: 0; }
 }
+
+footer .names { color: var(--ink); font-weight: 700; }
