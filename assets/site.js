@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   const D = window.FINDINGS;
-  const DASHBOARD = "https://hasini0.github.io/dpcn_a2/";
+  const DASHBOARD = "https://dpcn-a2-dashboard-group23.netlify.app/";
 
   const SECTIONS = [
     ["data", "data.html", "How we built the data", "Downloading, attributing, verifying faculty and merging names"],
@@ -126,7 +126,7 @@
     Research output 2016–2026 of SN Bose National Centre for Basic Sciences, Bose Institute, Saha Institute of Nuclear Physics
     and NCBS Bangalore. Data from OpenAlex (downloaded October 2026; 2026 is a partial year), the four institutes'
     own faculty pages, SCImago 2023 quartiles and approximate JCR 2023 impact factors.
-    Interactive dashboard: <a href="${DASHBOARD}">hasini0.github.io/dpcn_a2</a>.</div>`));
+    Interactive dashboard: <a href="${DASHBOARD}">dpcn-a2-dashboard-group23.netlify.app</a>.</div>`));
 
   // ---------- pager on section pages ----------
   const idx = SECTIONS.findIndex((s) => s[0] === page);
